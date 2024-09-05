@@ -11,9 +11,9 @@ pipeline {
                 script {
                     sh '''
                     aws deploy create-deployment \
-                    --application-name assignment_app \
-                    --deployment-group-name assign_grp \
-                    --github-location repository=Vrushabh-gomai/ori_project,commitId=$(git rev-parse HEAD)
+                        --application-name assignment_app \
+                        --deployment-group-name assign_grp \
+                        --github-location repository=Vrushabh-gomai/ori_project,commitId=$(git rev-parse HEAD)
                     '''
                 }
             }
