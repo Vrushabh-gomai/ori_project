@@ -21,7 +21,7 @@ pipeline {
                     --application-name assignment_app \
                     --deployment-group-name assign_grp \
                     --github-location repository=Vrushabh-gomai/ori_project,commitId=$(git rev-parse HEAD) \
-                    --region us-west-2
+                    --region us-east-1
                     '''
                 }
             }
