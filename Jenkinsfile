@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        AWS_ACCESS_KEY_ID_CRED = credentials('aws-access-key-id')  // ID for the AWS Access Key
+        AWS_SECRET_ACCESS_KEY_CRED = credentials('aws-secret-key')  // ID for the AWS Secret Key
+    }
     stages {
         stage('Checkout Code') {
             steps {
@@ -13,11 +17,16 @@ pipeline {
                     aws deploy create-deployment \
                         --application-name assignment_app \
                         --deployment-group-name assign_grp \
-                        --github-location repository=Vrushabh-gomai/ori_project,commitId=$(git rev-parse HEAD)
+                        --github-location repository=Vrushabh-gomai/ori_project,commitId=$(git rev-parse HEAD) \
+                        --region us-west-2 \
+                        --access-key-id ${AWS_ACCESS_KEY_ID_CRED} \
+                        --secret-access-key ${AWS_SECRET_ACCESS_KEY_CRED}
                     '''
                 }
             }
         }
     }
 }
+
+
 
