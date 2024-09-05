@@ -15,6 +15,7 @@ pipeline {
                         --deployment-group-name assign_grp \
                         --github-location repository=Vrushabh-gomai/ori_project,commitId=$(git rev-parse HEAD)
                     '''
+                    '''
                 }
             }
         }
